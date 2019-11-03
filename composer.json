@@ -1,0 +1,22 @@
+{
+  "name": "michielroos/bugsnag",
+  "type": "typo3-cms-extension",
+  "description": "Bugsnag exception handler",
+  "keywords": [
+    "TYPO3"
+  ],
+  "version": "1.0.0",
+  "require": {
+    "typo3/cms-core": "^8.7 || ^9.2",
+    "bugsnag/bugsnag": "^3.18"
+  },
+  "replace": {
+    "typo3-ter/bugsnag": "self.version"
+  },
+  "autoload": {
+    "psr-4": {
+      "MichielRoos\\Bugsnag\\": "Classes"
+    }
+  },
+  "license": "GPL-2.0-or-later"
+}
