@@ -6,12 +6,6 @@
             <trans-unit id="settings.apiKey">
                 <source>Bugsnag API key</source>
             </trans-unit>
-            <trans-unit id="settings.enableDebug">
-                <source>Enable Bugsnag Debug Exception Handler</source>
-            </trans-unit>
-            <trans-unit id="settings.enableProduction">
-                <source>Enable Bugsnag Production Exception Handler</source>
-            </trans-unit>
         </body>
     </file>
 </xliff>
