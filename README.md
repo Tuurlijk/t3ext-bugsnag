@@ -4,7 +4,7 @@ Bugsnag exception handlers, send exceptions to bugsnag
 
 ## Configuration
 
-### Genral exceptions
+### General exceptions
 Configure the [Bugsnag API key](https://app.bugsnag.com/) in the TYPO3 extension configuration screen or make it availabe in your environment as `BUGSNAG_API_KEY`.
 
 Set the exceptionhandlers to use the Bugsnag exception handlers either using the install tool or by specifying them in `AdditionalConfiguration.php`.
