@@ -31,6 +31,6 @@ class ProductionExceptionHandler extends \TYPO3\CMS\Frontend\ContentObject\Excep
     {
         $bugsnagService = GeneralUtility::makeInstance(BugsnagService::class);
         $bugsnagService->sendException($exception);
-        parent::handle($exception, $contentObject, $contentObjectConfiguration);
+        return parent::handle($exception, $contentObject, $contentObjectConfiguration);
     }
 }
