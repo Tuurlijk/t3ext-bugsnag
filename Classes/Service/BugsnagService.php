@@ -18,7 +18,7 @@ class BugsnagService
      *
      * @param \Exception $exception
      */
-    public function sendException(\Exception $exception)
+    public function sendException(\Throwable $exception)
     {
         if (version_compare(TYPO3_version, '9.0', '<')) {
             $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bugsnag'], ['string']);
