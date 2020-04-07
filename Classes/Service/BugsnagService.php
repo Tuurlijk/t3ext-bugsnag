@@ -43,7 +43,7 @@ class BugsnagService
             if (version_compare(TYPO3_version, '9.0', '<')) {
                 $context = getenv('TYPO3_CONTEXT') ?: (getenv('REDIRECT_TYPO3_CONTEXT') ?: 'Production');
             } else {
-                $context = TYPO3\CMS\Core\Core\Environment::getContext();
+                $context = \TYPO3\CMS\Core\Core\Environment::getContext();
             }
             $bugsnag->setReleaseStage((string)$context);
 
