@@ -6,8 +6,8 @@
     "TYPO3"
   ],
   "require": {
-    "typo3/cms-core": "^8.7 || ^9.2",
-    "bugsnag/bugsnag": "^3.18"
+    "typo3/cms-core": "^11.5",
+    "bugsnag/bugsnag": "^3.29"
   },
   "replace": {
     "typo3-ter/bugsnag": "self.version"
