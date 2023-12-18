@@ -2,6 +2,7 @@
   "name": "michielroos/bugsnag",
   "type": "typo3-cms-extension",
   "description": "Bugsnag exception handler",
+  "version": "10.0",
   "keywords": [
     "TYPO3"
   ],
