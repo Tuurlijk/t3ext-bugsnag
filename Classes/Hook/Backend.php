@@ -2,26 +2,33 @@
 
 namespace MichielRoos\Bugsnag\Hook;
 
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Http\ApplicationType;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
 
 class Backend
 {
-    /**
-     * Load JavaScript file
-     * @return void
-     */
-    public function addJavaScript(): void
+    public function addRequireJsConfiguration(array $params, PageRenderer $pageRenderer): void
     {
-        $publicResourcesPath = PathUtility::getAbsoluteWebPath(ExtensionManagementUtility::extPath('bugsnag') . 'Resources/Public/');
+        if (($GLOBALS['TYPO3_REQUEST'] ?? null) instanceof ServerRequestInterface
+            && ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isBackend()
+        ) {
 
-        /** @var \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer */
-        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-        $pageRenderer->addRequireJsConfiguration([
-            'paths' => [
-                'Bugsnag' => $publicResourcesPath . 'JavaScript/',
-            ]
-        ]);
-        $pageRenderer->loadRequireJsModule('Bugsnag/testException');
+            $publicResourcesPath = PathUtility::getAbsoluteWebPath(ExtensionManagementUtility::extPath('bugsnag') . 'Resources/Public/');
+
+            $pageRenderer->addRequireJsConfiguration([
+                'paths' => [
+                    'Bugsnag' => $publicResourcesPath . 'JavaScript/',
+                ]
+            ]);
+            if ((new Typo3Version())->getMajorVersion() >= 13) {
+                $pageRenderer->loadJavaScriptModule('@michielroos/bugsnag/testException.js');
+            } else {
+                $pageRenderer->loadRequireJsModule('Bugsnag/testException');
+            }
+        }
     }
 }

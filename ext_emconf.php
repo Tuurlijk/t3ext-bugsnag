@@ -10,7 +10,7 @@ $EM_CONF['bugsnag'] = [
     'version'        => 'v12.0.0',
     'constraints'    => [
         'depends'   => [
-            'typo3' => '12.0.0-12.99.99',
+            'typo3' => '12.4.0-12.4.99',
         ],
         'conflicts' => [],
         'suggests'  => [],

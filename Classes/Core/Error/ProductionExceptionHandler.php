@@ -20,7 +20,7 @@ class ProductionExceptionHandler extends \TYPO3\CMS\Core\Error\ProductionExcepti
      *
      * @throws \Exception
      */
-    public function handleException(\Throwable $exception)
+    public function handleException(\Throwable $exception): void
     {
         $bugsnagService = GeneralUtility::makeInstance(BugsnagService::class);
         $bugsnagService->sendException($exception);

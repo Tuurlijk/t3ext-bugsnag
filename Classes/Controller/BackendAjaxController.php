@@ -11,13 +11,14 @@ use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Core\Http\RedirectResponse;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessageService;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class BackendAjaxController
 {
     /**
      * Fire a test exception, so we can check if we correctly configured the API key
-     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param ServerRequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface
      * @throws \Exception
      */
@@ -32,7 +33,7 @@ class BackendAjaxController
         $message                  = GeneralUtility::makeInstance(FlashMessage::class,
             'Test Exception sent to Bugsnag',
             'Exception sent',
-            FlashMessage::INFO,
+            ContextualFeedbackSeverity::INFO,
             true
         );
         $flashMessageService      = GeneralUtility::makeInstance(FlashMessageService::class);

@@ -3,6 +3,7 @@ namespace MichielRoos\Bugsnag\Service;
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
+use TYPO3\CMS\Core\Core\Environment;
 
 /**
  * Class BugsnagService
@@ -18,14 +19,9 @@ class BugsnagService
      *
      * @param \Exception $exception
      */
-    public function sendException(\Throwable $exception)
+    public function sendException(\Throwable $exception): void
     {
-        if (version_compare(TYPO3_version, '9.0', '<')) {
-            $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['bugsnag'], ['string']);
-        } else {
-            $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['bugsnag'];
-        }
-
+        $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['bugsnag'];
         $bugsnagApiKey = $extensionConfiguration['apiKey'] ?: (getenv('BUGSNAG_API_KEY') ?: '');
 
         if ($bugsnagApiKey !== '') {
@@ -40,11 +36,7 @@ class BugsnagService
             }
 
             // Set context
-            if (version_compare(TYPO3_version, '9.0', '<')) {
-                $context = getenv('TYPO3_CONTEXT') ?: (getenv('REDIRECT_TYPO3_CONTEXT') ?: 'Production');
-            } else {
-                $context = \TYPO3\CMS\Core\Core\Environment::getContext();
-            }
+            $context = Environment::getContext();
             $bugsnag->setReleaseStage((string)$context);
 
             Handler::register($bugsnag);
