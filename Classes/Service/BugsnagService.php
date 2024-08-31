@@ -3,7 +3,6 @@ namespace MichielRoos\Bugsnag\Service;
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
-use TYPO3\CMS\Core\Core\Environment;
 
 /**
  * Class BugsnagService
@@ -36,7 +35,7 @@ class BugsnagService
             }
 
             // Set context
-            $context = Environment::getContext();
+            $context = \TYPO3\CMS\Core\Core\Environment::getContext();
             $bugsnag->setReleaseStage((string)$context);
 
             Handler::register($bugsnag);

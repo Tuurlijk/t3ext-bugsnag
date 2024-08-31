@@ -7,10 +7,10 @@
                 <source>Bugsnag API key</source>
             </trans-unit>
            <trans-unit id="bugsnagTestException">
-                <source>Text reachability of the Bugsnag API by triggering a test exception</source>
+                <source>Test reachability of the Bugsnag API by triggering a test exception</source>
             </trans-unit>
            <trans-unit id="bugsnagTestExceptionConfirmationQuestion">
-                <source>Text reachability of the Bugsnag API by triggering a test exception?</source>
+                <source>Test reachability of the Bugsnag API by triggering a test exception?</source>
             </trans-unit>
            <trans-unit id="bugsnagTestExceptionButton">
                 <source>Trigger Bugsnag test exception</source>

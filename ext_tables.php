@@ -11,7 +11,7 @@ $GLOBALS['TYPO3_USER_SETTINGS']['columns']['bugsnagTestException'] = [
     'type'     => 'user',
     'label'    => 'LLL:EXT:bugsnag/Resources/Private/Language/locallang.xlf:bugsnagTestException',
     'userFunc' => function () {
-        return '<br><button type="button" class="btn btn-default" onclick="bugsnagTestException()">Generate test exception</button>';
+        return '<br><button type="button" id="testBugsnagException" class="btn btn-default">Generate test exception</button>';
     }
 ];
 
@@ -21,4 +21,4 @@ ExtensionManagementUtility::addFieldsToUserSettings(
 );
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
-    Backend::class . '->addRequireJsConfiguration';
+    \MichielRoos\Bugsnag\Hook\Backend::class . '->addRequireJsConfiguration';

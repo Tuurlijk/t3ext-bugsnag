@@ -24,8 +24,8 @@ class Backend
                     'Bugsnag' => $publicResourcesPath . 'JavaScript/',
                 ]
             ]);
-            if ((new Typo3Version())->getMajorVersion() >= 13) {
-                $pageRenderer->loadJavaScriptModule('@michielroos/bugsnag/testException.js');
+            if ((new Typo3Version())->getMajorVersion() >= 12) {
+                $pageRenderer->loadJavaScriptModule('@michielroos/bugsnag/test-exception.js');
             } else {
                 $pageRenderer->loadRequireJsModule('Bugsnag/testException');
             }
