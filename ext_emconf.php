@@ -7,10 +7,10 @@ $EM_CONF['bugsnag'] = [
     'author_company' => 'Michiel Roos',
     'author_email'   => 'michiel@michielroos.com',
     'state'          => 'stable',
-    'version'        => '1.1.2',
+    'version'        => 'v12.0.0',
     'constraints'    => [
         'depends'   => [
-            'typo3' => '8.7.0-9.5.99',
+            'typo3' => '12.4.0-12.4.99',
         ],
         'conflicts' => [],
         'suggests'  => [],

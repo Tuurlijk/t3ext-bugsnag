@@ -2,12 +2,13 @@
   "name": "michielroos/bugsnag",
   "type": "typo3-cms-extension",
   "description": "Bugsnag exception handler",
+  "version": "12.0",
   "keywords": [
     "TYPO3"
   ],
   "require": {
-    "typo3/cms-core": "^8.7 || ^9.2",
-    "bugsnag/bugsnag": "^3.18"
+    "typo3/cms-core": "^12",
+    "bugsnag/bugsnag": "^3.29"
   },
   "replace": {
     "typo3-ter/bugsnag": "self.version"
@@ -17,5 +18,10 @@
       "MichielRoos\\Bugsnag\\": "Classes"
     }
   },
-  "license": "GPL-2.0-or-later"
+  "license": "GPL-2.0-or-later",
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "bugsnag"
+    }
+  }
 }
